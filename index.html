@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Exclusive Offer - Limited Time</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Custom cursor & smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .hero:hover {
+            transform: translateY(-5px);
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .subheadline {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3);
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 75, 43, 0.4);
+            background: linear-gradient(90deg, #ff2e5c, #ff3a1f);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial .name {
+            font-weight: 700;
+            color: #764ba2;
+        }
+
+        /* Countdown Timer */
+        .timer-section {
+            background: linear-gradient(135deg, #1e2a3a, #0f172a);
+            color: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .timer-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            border-radius: 1rem;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .time-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .time-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .subheadline {
+                font-size: 1.1rem;
+            }
+            .cta-button {
+                font-size: 1.2rem;
+                padding: 0.8rem 2rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .time-number {
+                font-size: 1.8rem;
+            }
+            .time-box {
+                min-width: 60px;
+                padding: 0.75rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero, .features, .testimonials, .timer-section {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="badge">🔥 LIMITED TIME OFFER 🔥</div>
+            <h1>Unlock Your Exclusive Access Now!</h1>
+            <p class="subheadline">Join thousands who have already discovered this amazing opportunity. Don't miss out — act fast!</p>
+            <a href="https://nx2bs.com/c?o=42&a=206750" class="cta-button" id="mainCta">👉 Get Started Now 👈</a>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #777;">✓ No credit card required • ✓ Instant access • ✓ 30-day money-back guarantee</p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Access</h3>
+                <p>Get started immediately after signing up. No waiting, no delays.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your information is safe with bank-level encryption.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Proven Results</h3>
+                <p>Trusted by thousands of satisfied users worldwide.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>24/7 Support</h3>
+                <p>Our dedicated team is here to help you every step of the way.</p>
+            </div>
+        </div>
+
+        <!-- Countdown Timer Section -->
+        <div class="timer-section">
+            <h3>⏰ Hurry! This Special Offer Expires In:</h3>
+            <div class="countdown" id="countdown">
+                <div class="time-box">
+                    <div class="time-number" id="days">00</div>
+                    <div class="time-label">Days</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-number" id="hours">00</div>
+                    <div class="time-label">Hours</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-number" id="minutes">00</div>
+                    <div class="time-label">Mins</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-number" id="seconds">00</div>
+                    <div class="time-label">Secs</div>
+                </div>
+            </div>
+            <a href="https://nx2bs.com/c?o=42&a=206750" class="cta-button" style="margin-top: 2rem; background: white; color: #ff416c; box-shadow: none;">Claim Your Spot Now →</a>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+            <h2>🌟 What Our Members Are Saying</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Absolutely life-changing! I was skeptical at first, but this exceeded all my expectations. Highly recommended!"</p>
+                    <div class="name">— Sarah J. ⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="testimonial">
+                    <p>"The results are real. I've tried many offers before, but this one actually delivers. Customer support is fantastic too."</p>
+                    <div class="name">— Michael T. ⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Best decision I've made this year. Simple, effective, and worth every second. Don't hesitate!"</p>
+                    <div class="name">— Emma R. ⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="https://nx2bs.com/c?o=42&a=206750" class="cta-button" style="font-size: 1.6rem; padding: 1.2rem 3rem;">🚀 Get Instant Access 🚀</a>
+            <p style="margin-top: 1.2rem; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">Limited spots available — claim yours before it's too late!</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Exclusive Offer. All Rights Reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+            <p style="margin-top: 0.5rem;">This is an independent offer. Results may vary. See official terms for details.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown Timer (3 days from now)
+        function startCountdown() {
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 3);
+            targetDate.setHours(23, 59, 59, 999);
+
+            function updateTimer() {
+                const now = new Date();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    document.getElementById('days').innerText = '00';
+                    document.getElementById('hours').innerText = '00';
+                    document.getElementById('minutes').innerText = '00';
+                    document.getElementById('seconds').innerText = '00';
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        startCountdown();
+
+        // Optional: Add click tracking or analytics (you can modify this)
+        const allCtaButtons = document.querySelectorAll('.cta-button');
+        allCtaButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // You can add custom event tracking here if needed
+                console.log('CTA clicked: ' + this.href);
+                // The link will open normally, but you can add GA or other tracking
+            });
+        });
+    </script>
+</body>
+</html>
